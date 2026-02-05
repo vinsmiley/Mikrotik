@@ -94,29 +94,54 @@
 
 <section>
     <h2>3. Setting Interface</h2>
-    <p>Klik System > Interface</p>
+    <p><li>Klik System > Identity > Isi Sesuai Nama Kalian > Apply > Oke</li></p>
+    <p><li>Klik Interfaces > ether1 ubah jadi (ether1-internet) > Apply > Oke, ether2 ubah jadi (ether2-switchA) > Apply > Oke, ether3 ubah jadi (ether3-switchB) > Apply > Oke</li></p>
 </section>
 
 <section>
-    <h2>4. Konfigurasi IP Address</h2>
+    <h2>4. Setting DNS</h2>
+    <p>Klik IP > DNS </p>
+    <p>Di Kolom Servers Isi 8.8.8.8 , Lalu Klik Panah Kebawah dan Isi 8.8.4.4</p>
+</section>
+    
+    <section>
+    <h2>5. Konfigurasi IP Address</h2>
+    <p>Klik IP > Addresses</p>
     <div class="highlight">
-        IP Router : 192.168.10.1/24<br>
-        Interface : ether2
+        IP Router : 192.168.(Nomor Absen Kalian).1/24<br>
+        Interface : ether2-switchA
+        Klik Apply > Oke
+    </div>
+    <div class="highlight">
+        IP Router : 192.168.(Nomor Absen Kalian + 10).1/24<br>
+        Interface : ether3-switchB
+        Klik Apply > Oke
     </div>
 </section>
 
 <section>
-    <h2>5. DHCP Client</h2>
-    <p>Aktifkan DHCP Client pada ether1 untuk mendapatkan IP dari ISP.</p>
+    <h2>6. DHCP Client</h2>
+    <p>Klik IP > DHCP Client > DHCP</p>
+    <p>Interface Pilih ether1-internet, Klik Apply > Oke.</p>
 </section>
 
 <section>
-    <h2>6. NAT</h2>
-    <p>Tambahkan NAT masquerade agar jaringan LAN bisa terhubung ke internet.</p>
+    <h2>7. NAT</h2>
+    <p>Klik IP > Firewall > NAT > Klik Tanda +</p>
+    <p>Di Tab General, Kolom Chain Pilih srcnat, Kolom Out. Interface Pilih ether1-internet</p>
+    <p>Klik Apply > Oke</p>
 </section>
 
+    <section>
+    <h2>8. Setting Routes</h2>
+    <p>Klik IP > Route > Klik Tanda +</p>
+    <p>Di Tab General, Kolom Dst. Address Biarkan 0.0.0.0/0, Kolom Gateway Isi IP Gateway Yang Ada Pada ether1-internet</p>
+    <p>Klik Apply > Oke</p>
+</section>
+
+
 <section>
-    <h2>7. Pengujian</h2>
+    <h2>9. Pengujian</h2>
     <ul>
         <li>Ping gateway</li>
         <li>Ping antar PC</li>
@@ -125,14 +150,14 @@
 </section>
 
 <section>
-    <h2>8. Kesimpulan</h2>
+    <h2>10. Kesimpulan</h2>
     <p>Konfigurasi LAN MikroTik yang benar akan menghasilkan jaringan yang stabil dan terkoneksi internet.</p>
 </section>
 
 </div>
 
 <footer>
-    <p>© 2026 | Instalasi LAN MikroTik - TKJ</p>
+    <p>© Make With &#9829; By Kevin Saputra</p>
 </footer>
 
 </body>
