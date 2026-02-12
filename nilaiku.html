@@ -62,31 +62,31 @@
 <body>
 
 <div class="container">
-    <h2>Penilaian</h2>
+    <h2>Penilaian Kinerja</h2>
 
-    <label>Pesan & Kesan</label>
-    <input type="text" id="pesann" placeholder="Masukkan pesan & kesan untuk abang">
+    <label>Pesan dan Kesan</label>
+    <input type="text" id="nama" placeholder="Pesan dan Kesan Belajar Sama Abang">
 
-    <label>Abang jelas Gak Ngajarinnya? (1-100)</label>
+    <label>Abang Jelas Gak Saat Mengajar? (1-100)</label>
+    <input type="number" id="kesabaran" min="1" max="100">
+
+    <label>Kesopanan Abang! (1-100)</label>
     <input type="number" id="kejelasan" min="1" max="100">
 
-    <label>Abang Sopan Gak? (1-100)</label>
-    <input type="number" id="kesopanan" min="1" max="100">
-
     <label>Suka Gak Belajar Sama Abang? (1-100)</label>
-    <input type="number" id="favorite" min="1" max="100">
+    <input type="number" id="ketelitian" min="1" max="100">
 
-    <button onclick="kirimWA()">Kirim Jawaban</button>
+    <button onclick="kirimWA()">Kirim ke WhatsApp</button>
 </div>
 
 <script>
 function kirimWA() {
-    let pesann = document.getElementById("pesann").value;
-    let kesabaran = Number(document.getElementById("kejelasan").value);
-    let kejelasan = Number(document.getElementById("kesopanan").value);
-    let ketelitian = Number(document.getElementById("favorite").value);
+    let nama = document.getElementById("nama").value;
+    let kesabaran = Number(document.getElementById("kesabaran").value);
+    let kejelasan = Number(document.getElementById("kejelasan").value);
+    let ketelitian = Number(document.getElementById("ketelitian").value);
 
-    let rataRata = (kejelasan + kesopanan + favorite) / 3;
+    let rataRata = (kesabaran + kejelasan + ketelitian) / 3;
     let kategori = "";
 
     if (rataRata >= 85) {
@@ -101,10 +101,10 @@ function kirimWA() {
 
     let pesan =
         "📊 Penilaian Kinerja%0A" +
-        "Pesan & Kesan: " + pesann + "%0A" +
-        "Kejelasan: " + kejelasan + "%0A" +
-        "Kesopanan: " + kesopanan + "%0A" +
-        "Favorite: " + favorite + "%0A" +
+        "Pesan dan Kesan: " + nama + "%0A" +
+        "Kejelasan: " + kesabaran + "%0A" +
+        "Kesopanan: " + kejelasan + "%0A" +
+        "Favorite : " + ketelitian + "%0A" +
         "Rata-rata: " + rataRata.toFixed(2) + "%0A" +
         "Kategori: " + kategori;
 
